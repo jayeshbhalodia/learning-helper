@@ -2,10 +2,8 @@
 var myApp = angular.module('myApp', ['ui.router']);
 
 myApp.config(function($stateProvider, $urlRouterProvider) {
-  //
-  // For any unmatched url, redirect to /state1
 
-  //
+  
   // Now set up the states
   $stateProvider
     .state('main', {
@@ -14,24 +12,6 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
       controller: "RevisionController"
   });
 
-    // .state('state1.list', {
-    //   url: "/list",
-    //   templateUrl: "partials/state1.list.html",
-    //   controller: function($scope) {
-    //     $scope.items = ["A", "List", "Of", "Items"];
-    //   }
-    // })
-    // .state('state2', {
-    //   url: "/state2",
-    //   templateUrl: "partials/state2.html"
-    // })
-    // .state('state2.list', {
-    //   url: "/list",
-    //   templateUrl: "partials/state2.list.html",
-    //   controller: function($scope) {
-    //     $scope.things = ["A", "Set", "Of", "Things"];
-    //   }
-    // });
 
     $urlRouterProvider.otherwise("/");
 });
@@ -128,12 +108,7 @@ myApp.run(function($rootScope) {
 //
 angular.element(document).ready(function() {
 
-    // alert("Sdf");
-    // if (window.location.hash === '#_=_') {
-    //     window.location.hash = '#!'
-    // }
-
-
+    
     angular.bootstrap(document, ['myApp']);
     alert("ds");
 });

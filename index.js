@@ -20,46 +20,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-//
-// app.use(function(req, res, next) {
-//
-//     console.log("1");
-//
-//
-//     next();
-// });
-//
-//
-// app.use(function(req, res, next) {
-//
-//     console.log("2");
-//
-//     res.send('123');
-//
-//     // next();
-// });
-//
-//
-// app.use(function(req, res, next) {
-//
-//     console.log("3");
-//
-//     next();
-// });
-//
-// //
-// app.use(require('connect').bodyParser());
-// app.use(express.bodyParser());
-
-
-
-
-
-
 
 //
-
-mongoose.connect('mongodb://localhost/revision-me');
+mongoose.connect('mongodb://localhost/learning-heler');
 var Schema = mongoose.Schema;
 
 //
@@ -72,9 +35,6 @@ var learningPoints = new Schema({
 //
 mongoose.model('learningPoints', learningPoints);
 
-
-
-
 //
 app.get('/', function (req, res) {
     res.render('angular-layout.html',{
@@ -82,8 +42,6 @@ app.get('/', function (req, res) {
         title: 'Revision Me - Home'
     });
 });
-
-
 
 //
 app.post('/api/v1/learning-points/create', function(req, res) {
