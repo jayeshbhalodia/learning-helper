@@ -43,8 +43,10 @@ app.get('/', function (req, res) {
     });
 });
 
+
 //
 app.post('/api/v1/learning-points/create', function(req, res) {
+
     //
     var learningPointsModel = mongoose.model('learningPoints');
     var learningPointForm = new learningPointsModel(req.body);
@@ -61,7 +63,11 @@ app.post('/api/v1/learning-points/create', function(req, res) {
 
 //
 app.post('/api/v1/learning-points/get', function(req, res) {
+
+    //
     var learningPointsModel = mongoose.model('learningPoints');
+
+    //
     learningPointsModel.find({}).exec(function(err, data) {
         res.json(data);
     });

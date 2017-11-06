@@ -89,7 +89,7 @@ myApp.controller('RevisionController',['$scope', '$http', function($scope,$http)
     $scope.rv.lo.getData = function() {
         //
         $http.post('/api/v1/learning-points/get', {}).then(function(response) {
-            console.log(' > >>> > >> ', response.data);
+
             $scope.rv.lo.data = response.data;
         });
 
