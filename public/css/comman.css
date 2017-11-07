@@ -1,7 +1,9 @@
 .m-0 { 
 	margin: 0; 
 }
-
+.ptr {
+	cursor: pointer;
+}
 
 
 .mt-0 {
