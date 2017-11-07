@@ -3,9 +3,7 @@
     <!-- -->
     <ul class="nav justify-content-end">
         <li class="nav-item">
-            <a class="nav-link active" href="#" ng-click="rv.co.openModal()">
-                <button type="button" class="btn btn-outline-primary"> <span class="ion-android-add-circle"></span> Create</button>
-            </a>
+            <button type="button" class="btn btn-outline-primary ptr" ng-click="rv.co.openModal()"> <span class="ion-android-add-circle"></span> Create</button>
         </li>
     </ul>
 
@@ -15,8 +13,8 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">{{data.title}}
-                        <span class="ion-android-delete delete-icon pl-20"></span>
-                        <span class="ion-android-create edit-icon"></span>
+                        <span class="ion-android-delete delete-icon pointer pl-20 ptr2"></span>
+                        <span class="ion-android-create edit-icon ptr" ng-click="rv.eo.editModal()"></span>
                     </h4>
                     <p class="card-text">{{data.description}}</p>
                     <a href="#" class="btn btn-primary text-right">Show More...</a>
@@ -25,12 +23,14 @@
         </div>
     </div>
 
+
+    <!-- Create Topic -->
     <div class="modal" tabindex="-1" role="dialog" id="create-learning-point-modal">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <form name="createLearningPointForm" ng-submit="rv.co.submitAction(createLearningPointForm)" novalidate>
                     <div class="modal-header">
-                        <h5 class="modal-title">Create</h5>
+                        <h5 class="modal-title">Create Topic</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -52,11 +52,49 @@
                         <textarea class="form-control" rows="3" name="description" ng-model="rv.co.model.description"  ng-required="true"></textarea>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn" ng-click="rv.co.closeModal()">cancel</button>
-                        <button type="submit" class="btn btn-primary">Create</button>
+                        <button type="button" class="btn ptr" ng-click="rv.co.closeModal()">cancel</button>
+                        <button type="submit" class="btn btn-primary ptr">Create</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
+
+    <!-- Edit Topic -->
+    <div class="modal" tabindex="-1" role="dialog" id="edit-learning-point-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form name="editLearningPointForm" ng-submit="rv.eo.submitAction(editLearningPointForm)" novalidate>
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Topic</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="form-group">
+                        <label>
+                            Title
+                            <span class="pull-right" data-ng-show="rv.eo.isSubmited && editLearningPointForm.edit_title.$error.required"> Required </span>
+                        </label>
+                        <input type="text" class="form-control" name="title" ng-model="rv.eo.model.edit_title"  ng-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            Description
+                            <span class="pull-right" data-ng-show="rv.eo.isSubmited && editLearningPointForm.edit_description.$error.required"> Required </span>
+                        </label>
+                        <textarea class="form-control" rows="3" name="description" ng-model="rv.eo.model.edit_description"  ng-required="true"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn ptr" ng-click="rv.eo.closeModal()">cancel</button>
+                        <button type="submit" class="btn btn-primary ptr">Edit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 </section>
