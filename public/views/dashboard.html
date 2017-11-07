@@ -14,9 +14,12 @@
         <div class="col-md-3" ng-repeat="data in rv.lo.data">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">{{data.title}}</h4>
+                    <h4 class="card-title">{{data.title}}
+                        <span class="ion-android-delete delete-icon pl-20"></span>
+                        <span class="ion-android-create edit-icon"></span>
+                    </h4>
                     <p class="card-text">{{data.description}}</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <a href="#" class="btn btn-primary text-right">Show More...</a>
                 </div>
             </div>
         </div>

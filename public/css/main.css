@@ -1,0 +1,15 @@
+.page-container {
+    padding:40px;
+}
+
+.btn.btn-primary.text-right {
+	float: right;
+}
+
+.edit-icon {
+	float: right;
+}
+
+.delete-icon {
+	float: right;
+}
