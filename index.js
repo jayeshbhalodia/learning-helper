@@ -62,6 +62,26 @@ app.post('/api/v1/learning-points/create', function(req, res) {
 
 
 //
+app.post('/api/v1/learning-points/edit:id', function(req, res) {
+
+    //
+    var learningPointsModel = mongoose.model('learningPoints');
+
+    //
+    learningPointsModel.update({
+        _id: req.body._id
+    }, {
+        title: req.body.edit_title,
+        description: req.body.edit_description
+    }).exec(function(err, result) {
+
+        //
+        res.json(result);
+    });
+});
+
+
+//
 app.post('/api/v1/learning-points/get', function(req, res) {
 
     //

@@ -84,8 +84,9 @@ myApp.controller('RevisionController',['$scope', '$http', function($scope,$http)
   /**
    *
    */
-  $scope.rv.eo.editModal = function() {
+  $scope.rv.eo.editModal = function(dataId) {
       $("#edit-learning-point-modal").modal('show');
+      $scope.rv.topicData = angular.copy(dataId);
   }
 
 
@@ -109,12 +110,16 @@ myApp.controller('RevisionController',['$scope', '$http', function($scope,$http)
       return;
     }
 
+    var topicData = {
+        title: $scope.rv.eo.model.edit_title,
+        description: $scope.rv.eo.model.edit_description
+    };
 
-    // //
-    // $http.post('/api/v1/learning-points/create', $scope.rv.co.model).then(function(response) {
-    //     $scope.rv.lo.data.push(response.data.data);
-    //     $scope.rv.co.closeModal();
-    // });
+    //
+    $http.post('/api/v1/learning-points/edit' +  $scope.rv.topicData._id, topicData).then(function(response) {
+
+      $scope.rv.eo.closeModal();
+    });
 
   }
 
