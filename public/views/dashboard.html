@@ -13,7 +13,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">{{data.title}}
-                        <span class="ion-android-delete delete-icon pointer pl-20 ptr"></span>
+                        <span class="ion-android-delete delete-icon pointer pl-20 ptr" ng-click="rv.do.deleteModal(data._id)"></span>
                         <span class="ion-android-create edit-icon ptr" ng-click="rv.eo.editModal(data._id)"></span>
                     </h4>
                     <p class="card-text">{{data.description}}</p>
@@ -109,5 +109,28 @@
         </div>
     </div>
     
+
+    <div class="modal fade" id="delete-learning-point-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5> Delete Confirm!
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="rv.do.deleteClose()">
+                          <span aria-hidden="true" data-dismiss="modal">&times;</span>
+                        </button>
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure want to delete this topic?</p>
+                </div>
+                <div class="modal-footer">
+                    <div class="pull-right">
+                    <button type="button" class="btn cancel-btn-color" data-dismiss="modal" href="javascript:void(0);" ng-click="rv.do.deleteClose()">No</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" data-ng-click="rv.do.deleteAction();rv.do.deleteClose()">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </section>

@@ -125,6 +125,42 @@ myApp.controller('RevisionController',['$scope', '$http', function($scope,$http)
 
 
 
+
+
+  // -------------------------------------------------------------------------
+  // Delete section
+  // -------------------------------------------------------------------------
+
+  $scope.rv.do = {
+    isSubmited: false,
+    model: {}
+  };
+
+  /**
+   *
+   */
+  $scope.rv.do.deleteModal = function() {
+    $("#delete-learning-point-modal").modal('show');
+  }
+
+
+
+  /**
+   *
+   */
+  $scope.rv.do.deleteClose = function() {
+    $("#delete-learning-point-modal").modal('hide');
+  }
+
+
+
+  /**
+   *
+   */
+  $scope.rv.do.deleteAction = function() {
+
+  }
+
   // -------------------------------------------------------------------------
   // List section
   // -------------------------------------------------------------------------
