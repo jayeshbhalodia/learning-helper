@@ -85,8 +85,25 @@ myApp.controller('RevisionController',['$scope', '$http', function($scope,$http)
    *
    */
   $scope.rv.eo.editModal = function(dataId) {
-      $("#edit-learning-point-modal").modal('show');
-      $scope.rv.topicData = angular.copy(dataId);
+
+    //
+    $scope.tDataId = dataId;
+
+    //
+    $("#edit-learning-point-modal").modal('show');
+    var tData = angular.copy($scope.rv.lo.data);
+
+    //
+    for(var t in tData) {
+
+      //
+      if ($scope.rv.lo.data[t]._id == dataId) {
+
+        //
+        $scope.rv.eo.model.edit_title = tData[t].title;
+        $scope.rv.eo.model.edit_description = tData[t].description;
+      }
+    }
   }
 
 
@@ -110,17 +127,30 @@ myApp.controller('RevisionController',['$scope', '$http', function($scope,$http)
       return;
     }
 
+    //
     var topicData = {
         title: $scope.rv.eo.model.edit_title,
         description: $scope.rv.eo.model.edit_description
     };
 
     //
-    $http.post('/api/v1/learning-points/edit' +  $scope.rv.topicData._id, topicData).then(function(response) {
+    $http.post('/api/v1/learning-points/edit' + $scope.tDataId, topicData).then(function(response) {
 
+      //
+      for(var lo in $scope.rv.lo.data) {
+         
+        // 
+        if ($scope.rv.lo.data[lo]._id == $scope.tDataId) {
+
+          //
+          $scope.rv.lo.data[lo].title = $scope.rv.eo.model.edit_title;
+          $scope.rv.lo.data[lo].description = $scope.rv.eo.model.edit_description;
+        }
+      }
+
+      //
       $scope.rv.eo.closeModal();
     });
-
   }
 
 

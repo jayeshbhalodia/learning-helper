@@ -63,16 +63,16 @@ app.post('/api/v1/learning-points/create', function(req, res) {
 
 //
 app.post('/api/v1/learning-points/edit:id', function(req, res) {
-
+    
     //
     var learningPointsModel = mongoose.model('learningPoints');
 
     //
     learningPointsModel.update({
-        _id: req.body._id
+        _id: req.params.id
     }, {
-        title: req.body.edit_title,
-        description: req.body.edit_description
+        title: req.body.title,
+        description: req.body.description
     }).exec(function(err, result) {
 
         //
